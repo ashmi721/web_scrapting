@@ -61,6 +61,8 @@ df.to_csv('covid_data.csv',index=False)
 # read csv file
 df_read = pd.read_csv('covid_data.csv')
 
+
+
 # Extract the "country_names" and "total_cases" columns
 country_names = df['country_names'][0:10]
 total_cases = df['total_cases'][0:10]
@@ -69,14 +71,16 @@ total_death = df['total_deaths'][0:10]
 # data preprocessing
 # correct data format replace the seprator "," to ""
 df["total_cases"] = df["total_cases"].map(lambda x: int(x.replace(",","")))
-df["total_cases"]
-
 # Visualizing the data
 import plotly.express as px
-df_plot = df.head(20) # visualize the first 20 data
+from matplotlib import pyplot as plt
+# To  present the data in the 
+df_plot = df.head(20) # visual+ize the first 20 data
 # Create a bar plot using Plotly Express
 Bars = px.bar(df_plot, x='country_names', y='total_deaths', 
              labels={'country_names': 'Country', 'total_deaths': 'Total Deaths'},
              title='COVID-19 Total Cases by Country')
 
 print(Bars.show())
+
+
