@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
-url = url = "https://www.worldometers.info/coronavirus/"
+url = "https://www.worldometers.info/coronavirus/"
 response = requests.get(url)
 
 soup = BeautifulSoup(response.content,'html.parser')
